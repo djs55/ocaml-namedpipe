@@ -47,7 +47,9 @@ static void worker_connect(struct job_connect *job)
 static value result_connect(struct job_connect *job)
 {
   CAMLparam0 ();
-  CAMLreturn(Val_bool((job->result == TRUE)?1:0));
+  BOOL result = job->result;
+  lwt_unix_free_job(&job->job);
+  CAMLreturn(Val_bool((result == TRUE)?1:0));
 }
 
 CAMLprim
@@ -73,6 +75,7 @@ static void worker_flush(struct job_flush *job)
 static value result_flush(struct job_flush *job)
 {
   CAMLparam0 ();
+  lwt_unix_free_job(&job->job);
   CAMLreturn(Val_int(0));
 }
 
@@ -101,7 +104,9 @@ static void worker_wait(struct job_wait *job)
 static value result_wait(struct job_wait *job)
 {
   CAMLparam0 ();
-  CAMLreturn(Val_bool((job->result == TRUE)?1:0));
+  BOOL result = job->result;
+  lwt_unix_free_job(&job->job);
+  CAMLreturn(Val_bool((result == TRUE)?1:0));
 }
 
 CAMLprim
