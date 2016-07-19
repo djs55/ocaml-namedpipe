@@ -24,7 +24,7 @@ Library "named-pipe_lwt"
   Findlibname:        lwt
   Findlibparent:      named-pipe
   Modules:            Named_pipe_lwt
-  BuildDepends:       lwt, named-pipe
+  BuildDepends:       lwt, named-pipe, lwt.unix
   CSources:           named_pipe_lwt_stubs.c
   CCOpt:              -I $(pkg_lwt)
 
@@ -49,7 +49,7 @@ Executable test
   CompiledObject:     best
   Path:               lib_test
   MainIs:             test.ml
-  BuildDepends:       named-pipe, named-pipe.lwt, lwt, lwt.unix, alcotest 
+  BuildDepends:       named-pipe, named-pipe.lwt, lwt, lwt.unix, alcotest
 
 Test server_test
   Run$:               flag(tests)

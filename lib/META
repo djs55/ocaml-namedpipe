@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: fe7b1455cf0ad986320895b0dd28b1ae)
+# DO NOT EDIT (digest: 7f63d1196ba00c36aa67de9ebe1efe02)
 version = "0.2"
 description = "Win32 named pipes"
 requires = "unix"
@@ -11,7 +11,7 @@ exists_if = "named-pipe.cma"
 package "lwt" (
  version = "0.2"
  description = "Win32 named pipes"
- requires = "lwt named-pipe"
+ requires = "lwt named-pipe lwt.unix"
  archive(byte) = "named-pipe_lwt.cma"
  archive(byte, plugin) = "named-pipe_lwt.cma"
  archive(native) = "named-pipe_lwt.cmxa"
